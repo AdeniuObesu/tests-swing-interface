@@ -1,4 +1,4 @@
-package org.adeniuobesu.ui;
+package org.mql.java.ui;
 
 import javax.swing.JFrame;
 
