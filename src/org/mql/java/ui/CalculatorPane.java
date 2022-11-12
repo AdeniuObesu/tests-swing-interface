@@ -3,12 +3,12 @@
  */
 package org.mql.java.ui;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.JLabel;
 
 import org.junit.platform.launcher.listeners.TestExecutionSummary.Failure;
-import org.mql.java.runner.TestRunner;
 
 
 /**
@@ -18,25 +18,33 @@ import org.mql.java.runner.TestRunner;
  */
 public class CalculatorPane extends Pane {
 	private static final long serialVersionUID = 1l;
-	
+	GridLayout layout;
 	public CalculatorPane() {
-		super(new TestRunner("CalculatorTest"));
-		GridLayout layout = new GridLayout(testsFailedCount + 2, 2);
+		super("Calculator");
+		layout = new GridLayout(testsFailedCount + 2, 2);
 		
 		layout.setHgap(25);
 		layout.setVgap(25);
 		setLayout(layout);
 		
-		
 		generateReport();
 	}
 	
 	public void generateReport(){
+		JLabel l1 = new JLabel("Total Tests count : "+ testsFoundCount);
+		JLabel l2 = new JLabel("Tests succeded : "+ testsSuccededCount);
+		JLabel l3 = new JLabel("Tests failed : "+ testsFailedCount);
+		JLabel l4 = new JLabel("Tests skipped : "+ testsSkippedCount);
 
-		add(new JLabel("Total Tests count : "+ testsFoundCount));
-		add(new JLabel("Tests failed : "+ testsFailedCount));
-		add(new JLabel("Tests succeded : "+ testsSuccededCount));
-		add(new JLabel("Tests skipped : "+ testsSkippedCount));
+		l1.setForeground(Color.black);
+		l2.setForeground(Color.green);
+		l3.setForeground(Color.red);
+		l4.setForeground(Color.lightGray);
+		
+		add(l1);
+		add(l2);
+		add(l3);
+		add(l4);
 		
 		for(Failure failure : testRunner.getSummary().getFailures()) {
 			add(new JLabel(failure.getTestIdentifier().getDisplayName()));

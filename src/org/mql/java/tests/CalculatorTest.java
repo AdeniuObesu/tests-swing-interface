@@ -27,7 +27,7 @@ public class CalculatorTest {
 	
 	@Test
 	void shouldAddTwoIntegers() {
-		assertEquals(5, calculator.add(3, 2));
+		assertEquals(51, calculator.add(3, 2));
 		assertEquals(-1, calculator.add(-3, 2));
 		assertEquals(11, calculator.add(14, -3));
 	}

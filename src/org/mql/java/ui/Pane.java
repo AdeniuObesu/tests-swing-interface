@@ -3,6 +3,8 @@
  */
 package org.mql.java.ui;
 
+import java.awt.Color;
+
 import javax.swing.JPanel;
 
 import org.mql.java.runner.TestRunner;
@@ -21,8 +23,9 @@ public class Pane extends JPanel {
 	protected int testsSuccededCount;
 	protected int testsSkippedCount;
 	
-	public Pane(TestRunner testRunner) {
-		this.testRunner = testRunner;
+	public Pane(String sut) {
+		setBackground(new Color(255, 248, 240));
+		testRunner = new TestRunner(sut + "Test");
 		testsFoundCount = (int) testRunner.getSummary().getTestsFoundCount();
 		testsFailedCount = (int) testRunner.getSummary().getTestsFailedCount();
 		testsSkippedCount = (int) testRunner.getSummary().getTestsSkippedCount();
