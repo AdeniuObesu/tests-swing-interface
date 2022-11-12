@@ -6,6 +6,7 @@ package org.mql.java.runner;
 import org.junit.platform.engine.discovery.DiscoverySelectors;
 import org.junit.platform.launcher.Launcher;
 import org.junit.platform.launcher.LauncherDiscoveryRequest;
+import org.junit.platform.launcher.TestPlan;
 import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder;
 import org.junit.platform.launcher.core.LauncherFactory;
 import org.junit.platform.launcher.listeners.SummaryGeneratingListener;
@@ -18,6 +19,7 @@ import org.junit.platform.launcher.listeners.TestExecutionSummary;
  */
 public class TestRunner {
 	TestExecutionSummary summary;
+	TestPlan testPlan;
 	/* 	The constructor takes as parameter
 	 *  the class name to test (sut) : System Under Test
 	 *  assuming the tests base package by default is known.
@@ -38,6 +40,7 @@ public class TestRunner {
 		Launcher launcher = LauncherFactory.create();
 		SummaryGeneratingListener listener = new SummaryGeneratingListener();
 		launcher.registerTestExecutionListeners(listener);
+		testPlan = launcher.discover(request);
 		launcher.execute(request);
 		
 		summary = listener.getSummary();
@@ -45,5 +48,8 @@ public class TestRunner {
 	
 	public TestExecutionSummary getSummary() {
 		return summary;
+	}
+	public TestPlan getTestPlan() {
+		return testPlan;
 	}
 }

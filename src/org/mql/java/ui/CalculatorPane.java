@@ -36,19 +36,25 @@ public class CalculatorPane extends Pane {
 		JLabel l3 = new JLabel("Tests failed : "+ testsFailedCount);
 		JLabel l4 = new JLabel("Tests skipped : "+ testsSkippedCount);
 
-		l1.setForeground(Color.black);
-		l2.setForeground(Color.green);
-		l3.setForeground(Color.red);
-		l4.setForeground(Color.lightGray);
+		l1.setForeground(Color.BLACK);
+		l2.setForeground(Color.GREEN);
+		l3.setForeground(Color.RED);
+		l4.setForeground(Color.GRAY);
 		
 		add(l1);
 		add(l2);
 		add(l3);
 		add(l4);
-		
 		for(Failure failure : testRunner.getSummary().getFailures()) {
-			add(new JLabel(failure.getTestIdentifier().getDisplayName()));
-			add(new JLabel(failure.getException().getMessage()));
+			
+			JLabel left = new JLabel(failure.getTestIdentifier().getDisplayName());
+			JLabel right = new JLabel(failure.getException().getMessage());
+			
+			left.setForeground(Color.RED);
+			right.setForeground(Color.RED);
+			
+			add(left);
+			add(right);
 		}
 	}
 }
