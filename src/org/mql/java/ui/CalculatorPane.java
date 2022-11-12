@@ -6,7 +6,6 @@ package org.mql.java.ui;
 import java.awt.GridLayout;
 
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import org.junit.platform.launcher.listeners.TestExecutionSummary.Failure;
 import org.mql.java.runner.TestRunner;
@@ -17,14 +16,13 @@ import org.mql.java.runner.TestRunner;
  *
  * Nov 12, 2022
  */
-public class CalculatorPane extends JPanel {
+public class CalculatorPane extends MainPane {
 	private static final long serialVersionUID = 1l;
-	TestRunner testRunner;
 	
 	public CalculatorPane() {
-		testRunner = new TestRunner("CalculatorTest");
+		super(new TestRunner("CalculatorTest"));
+		GridLayout layout = new GridLayout(1, testsFoundCount);
 		
-		GridLayout layout = new GridLayout(1, 3);
 		layout.setHgap(25);
 		layout.setVgap(25);
 		setLayout(layout);
@@ -35,9 +33,10 @@ public class CalculatorPane extends JPanel {
 	}
 	
 	public void generateReport(){
-		add(new JLabel("Tests succeded "+testRunner.getSummary().getTestsSucceededCount()));
-		add(new JLabel("Tests failed "+testRunner.getSummary().getTestsFailedCount()));
-		add(new JLabel("Tests skipped "+testRunner.getSummary().getTestsSkippedCount()));
+		
+		add(new JLabel("Tests succeded "+ testsSuccededCount));
+		add(new JLabel("Tests failed "+ testsFailedCount));
+		add(new JLabel("Tests skipped "+ testsSkippedCount));
 		
 		for(Failure failure : testRunner.getSummary().getFailures()) {
 			add(new JLabel(
