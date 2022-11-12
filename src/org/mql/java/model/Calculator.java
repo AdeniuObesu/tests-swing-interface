@@ -26,9 +26,9 @@ public class Calculator {
 		return x*y;
 	}
 	
-	public double divide(int x, int y) throws Exception {
+	public double divide(int x, int y) {
 		if(y==0)
-			throw new Exception("Oups, Division by 0 !");
+			throw new ArithmeticException("Oups, Division by 0 !");
 		return (double)x/y;
 	}
 	
@@ -36,7 +36,7 @@ public class Calculator {
 	 * 	Reciprocal of the fraction x/y is y/x, in order to make sure
 	 * our methods behave the same way, this method will call divide.
 	 * */
-	public double reciprocal(int x, int y) throws Exception {
+	public double reciprocal(int x, int y) {
 		return divide(y, x);
 	}
 }

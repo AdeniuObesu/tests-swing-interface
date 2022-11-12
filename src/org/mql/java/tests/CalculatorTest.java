@@ -58,7 +58,7 @@ public class CalculatorTest {
 		assertAll(
 				() -> assertEquals(2.5, calculator.divide(5, 2)),
 				() -> assertEquals(0.75, calculator.divide(3, 4)),
-				() -> assertThrows(Exception.class, ()->{
+				() -> assertThrows(ArithmeticException.class, ()->{
 					calculator.divide(3, 0);
 				})
 			);
@@ -69,7 +69,7 @@ public class CalculatorTest {
 		assertAll(
 				() -> assertEquals(0.4, calculator.reciprocal(5, 2)),
 				() -> assertEquals(3, calculator.reciprocal(5, 15)),
-				() -> assertThrows(Exception.class, ()->{
+				() -> assertThrows(ArithmeticException.class, ()->{
 					calculator.reciprocal(0, 3);
 				})
 			);

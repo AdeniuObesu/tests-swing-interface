@@ -13,6 +13,7 @@ public class MainFrame extends JFrame {
 		setVisible(true);
 		pack();
 	}
+	
 	public static void main(String[] args) {
 		new MainFrame();
 	}

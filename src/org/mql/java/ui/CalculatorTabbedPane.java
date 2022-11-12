@@ -12,6 +12,7 @@ import javax.swing.JTabbedPane;
  */
 public class CalculatorTabbedPane extends JTabbedPane{
 	private static final long serialVersionUID = 1l;
+	
 	public CalculatorTabbedPane() {
 		add("Calculator", new CalculatorPane());
 	}
