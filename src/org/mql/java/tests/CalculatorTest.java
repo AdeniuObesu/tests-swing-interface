@@ -67,8 +67,8 @@ public class CalculatorTest {
 	@Test
 	void shouldReturnReciprocalOfAFraction() {
 		assertAll(
-				() -> assertEquals(2.5, calculator.reciprocal(5, 2)),
-				() -> assertEquals(0.75, calculator.reciprocal(3, 4)),
+				() -> assertEquals(0.4, calculator.reciprocal(5, 2)),
+				() -> assertEquals(3, calculator.reciprocal(5, 15)),
 				() -> assertThrows(Exception.class, ()->{
 					calculator.reciprocal(0, 3);
 				})

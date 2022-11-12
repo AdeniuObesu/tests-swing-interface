@@ -33,7 +33,7 @@ public class Calculator {
 	}
 	
 	/* For integrity :
-	 * 		Reciprocal of the fraction x/y is y/x, in order to make sure
+	 * 	Reciprocal of the fraction x/y is y/x, in order to make sure
 	 * our methods behave the same way, this method will call divide.
 	 * */
 	public double reciprocal(int x, int y) throws Exception {
