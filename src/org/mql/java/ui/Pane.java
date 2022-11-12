@@ -12,7 +12,7 @@ import org.mql.java.runner.TestRunner;
  *
  * Nov 12, 2022
  */
-public class MainPane extends JPanel {
+public class Pane extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	protected TestRunner testRunner;
@@ -21,7 +21,7 @@ public class MainPane extends JPanel {
 	protected int testsSuccededCount;
 	protected int testsSkippedCount;
 	
-	public MainPane(TestRunner testRunner) {
+	public Pane(TestRunner testRunner) {
 		this.testRunner = testRunner;
 		testsFoundCount = (int) testRunner.getSummary().getTestsFoundCount();
 		testsFailedCount = (int) testRunner.getSummary().getTestsFailedCount();
