@@ -26,11 +26,11 @@ public class CalculatorPane extends Pane {
 		layout.setHgap(10);
 		layout.setVgap(10);
 		setLayout(layout);
-		
-		generateReport();
+		loadResultsInUI();
 	}
 	
-	public void generateReport(){
+	@Override
+	protected void loadResultsInUI(){
 		JLabel l1 = new JLabel(testsFoundCount+" Tests found finished in : " + testTime +" ms");
 		JLabel l2 = new JLabel("Tests succeded : "+ testsSuccededCount);
 		JLabel l3 = new JLabel("Tests failed : "+ testsFailedCount);

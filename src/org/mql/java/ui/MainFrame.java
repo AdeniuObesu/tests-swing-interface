@@ -1,8 +1,10 @@
 package org.mql.java.ui;
 
 import java.awt.Dimension;
+import java.awt.GridLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
 
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1l;
@@ -14,7 +16,12 @@ public class MainFrame extends JFrame {
 //			System.out.println(e.getMessage());
 //		}
 		setTitle("Unit Testing Results Browser...");
-		add(new CalculatorTabbedPane());
+		getContentPane().setLayout(new GridLayout(1, 1));
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.add("Calculator", new CalculatorPane());
+		getContentPane().add(tabbedPane);
+		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(new Dimension(600, 400));
 		setLocationRelativeTo(null);
