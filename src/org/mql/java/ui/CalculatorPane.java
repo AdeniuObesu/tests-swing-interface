@@ -31,13 +31,13 @@ public class CalculatorPane extends Pane {
 	
 	@Override
 	protected void loadResultsInUI(){
-		JLabel l1 = new JLabel(testsFoundCount+" Tests found finished in : " + testTime +" ms");
+		JLabel l1 = new JLabel(testsFoundCount+" Tests found and finished in : (" + testTime +" ms)");
 		JLabel l2 = new JLabel("Tests succeded : "+ testsSuccededCount);
 		JLabel l3 = new JLabel("Tests failed : "+ testsFailedCount);
 		JLabel l4 = new JLabel("Tests skipped : "+ testsSkippedCount);
 
 		l1.setForeground(Color.BLACK);
-		l2.setForeground(Color.GREEN);
+		l2.setForeground(new Color(46, 126, 50));
 		l3.setForeground(Color.RED);
 		l4.setForeground(Color.GRAY);
 		

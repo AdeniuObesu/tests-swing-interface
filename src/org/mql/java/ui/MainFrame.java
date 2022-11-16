@@ -10,16 +10,14 @@ public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1l;
 	
 	public MainFrame() {
-//		try { // set Windows Look and feel
-//			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-//		} catch (Exception e) {
-//			System.out.println(e.getMessage());
-//		}
 		setTitle("Unit Testing Results Browser...");
 		getContentPane().setLayout(new GridLayout(1, 1));
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.add("Calculator", new CalculatorPane());
+		// More you add test cases, the more tabs you add...
+		
+		//finally
 		getContentPane().add(tabbedPane);
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

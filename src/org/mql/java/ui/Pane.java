@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 import org.mql.java.runner.TestRunner;
@@ -31,7 +32,8 @@ public abstract class Pane extends JPanel implements Reportable {
 	private String sut;
 	
 	public Pane(String sut) {
-		setBackground(new Color(255, 248, 240));
+		setBackground(new Color(225, 224, 224));
+		setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		this.sut = sut;
 		generateReport();
 	}
@@ -45,7 +47,7 @@ public abstract class Pane extends JPanel implements Reportable {
 		testsSuccededCount = (int) testRunner.getSummary().getTestsSucceededCount();
 		Date t1 = new Date(new Timestamp(testRunner.getSummary().getTimeStarted()).getTime());
 		Date t2 = new Date(new Timestamp(testRunner.getSummary().getTimeFinished()).getTime());
-		testTime = (t2.getTime() - t1.getTime()) / 1000;
+		testTime = (t2.getTime() - t1.getTime());
 	}
 	
 	protected abstract void loadResultsInUI();
