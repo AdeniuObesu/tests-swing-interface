@@ -13,7 +13,7 @@ public class MainFrame extends JFrame {
 //		} catch (Exception e) {
 //			System.out.println(e.getMessage());
 //		}
-		setTitle("Unit Testing's Results Browser...");
+		setTitle("Unit Testing Results Browser...");
 		add(new CalculatorTabbedPane());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(new Dimension(600, 400));
