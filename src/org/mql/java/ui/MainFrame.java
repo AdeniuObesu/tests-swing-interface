@@ -1,23 +1,24 @@
 package org.mql.java.ui;
 
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
-import javax.swing.UIManager;
 
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1l;
 	
 	public MainFrame() {
-		try {
-			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		setTitle("UNIT TEST RUNNER!");
+//		try { // set Windows Look and feel
+//			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//		}
+		setTitle("Unit Testing's Results Browser...");
 		add(new CalculatorTabbedPane());
-		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(new Dimension(600, 400));
+		setLocationRelativeTo(null);
 		setVisible(true);
-		pack();
 	}
 	
 	public static void main(String[] args) {

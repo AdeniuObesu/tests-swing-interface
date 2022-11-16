@@ -8,7 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mql.java.model.Calculator;
 
@@ -17,9 +20,15 @@ import org.mql.java.model.Calculator;
  *
  * Nov 12, 2022
  */
-public class CalculatorTest {
+class CalculatorTest {
 	// Our system under test
 	private Calculator calculator;
+	
+	@BeforeAll
+	static void greeting() {
+		System.out.println("Calculator Test starting...");
+	}
+	
 	@BeforeEach
 	void setUp() {
 		calculator = new Calculator();
@@ -74,9 +83,21 @@ public class CalculatorTest {
 				})
 			);
 	}
+
+	@DisplayName("A skipped test")
+	@Disabled
+	@Test
+	void shouldDoNothing() {
+		
+	}
 	
 	@AfterEach
 	void tearDown() {
 		calculator = null;
+	}
+	
+	@BeforeAll
+	static void tearDownAll() {
+		System.out.println("Calculator Test end!");
 	}
 }

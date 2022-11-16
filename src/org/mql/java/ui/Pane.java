@@ -4,6 +4,8 @@
 package org.mql.java.ui;
 
 import java.awt.Color;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.swing.JPanel;
 
@@ -22,6 +24,7 @@ public class Pane extends JPanel {
 	protected int testsFailedCount;
 	protected int testsSuccededCount;
 	protected int testsSkippedCount;
+	protected float testTime;
 	
 	public Pane(String sut) {
 		setBackground(new Color(255, 248, 240));
@@ -30,5 +33,8 @@ public class Pane extends JPanel {
 		testsFailedCount = (int) testRunner.getSummary().getTestsFailedCount();
 		testsSkippedCount = (int) testRunner.getSummary().getTestsSkippedCount();
 		testsSuccededCount = (int) testRunner.getSummary().getTestsSucceededCount();
+		Date t1 = new Date(new Timestamp(testRunner.getSummary().getTimeStarted()).getTime());
+		Date t2 = new Date(new Timestamp(testRunner.getSummary().getTimeFinished()).getTime());
+		testTime = (t2.getTime() - t1.getTime()) / 1000;
 	}
 }

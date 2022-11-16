@@ -23,15 +23,15 @@ public class CalculatorPane extends Pane {
 		super("Calculator");
 		layout = new GridLayout(testsFailedCount + 2, 2);
 		
-		layout.setHgap(25);
-		layout.setVgap(25);
+		layout.setHgap(10);
+		layout.setVgap(10);
 		setLayout(layout);
 		
 		generateReport();
 	}
 	
 	public void generateReport(){
-		JLabel l1 = new JLabel("Total Tests count : "+ testsFoundCount);
+		JLabel l1 = new JLabel(testsFoundCount+" Tests found finished in : " + testTime +" ms");
 		JLabel l2 = new JLabel("Tests succeded : "+ testsSuccededCount);
 		JLabel l3 = new JLabel("Tests failed : "+ testsFailedCount);
 		JLabel l4 = new JLabel("Tests skipped : "+ testsSkippedCount);
